@@ -1,7 +1,7 @@
-  $(function(){
-     var data = [];
+$(function(){
+  var data = [];
   var counter = 0;  
- $.ajax({
+  $.ajax({
     url: "realData", 
     error: function(data){
       console.log('BUSTED AJAX', data); 
@@ -10,10 +10,9 @@
      data = result;  
     }
   }); 
-
-                $('#snapshot').on('click', function(){
-
-                $(".D3SnapshotScatterPlotChart").append('<div id="scatterChart"></div>'); 
+      $('#snapshot').on('click', function(){
+        if (counter < 1){
+          $(".D3SnapshotScatterPlotChart").append('<div id="scatterChart"></div>'); 
                       //margin
                 var margin = {top: 80, bottom: 150, right:10, left: 40}; 
                 var width = 700 - margin.right - margin.left,
@@ -261,8 +260,9 @@
                               }; 
                               windowCounter++; 
                             }).trigger("resize");
-
-                })
+                counter++; 
+            }
+          })
 
 }); 
 
