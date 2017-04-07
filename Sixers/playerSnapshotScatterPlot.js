@@ -11,8 +11,7 @@ $(function(){
     // Create custom commands
     commands.forEach(({ name, emoji }) => window.console[name] = (...args) => console.log(emoji + ' ' + args.join(', ')));
 }
-console.log("Copyright: I took all these pictures myself, I swear."); 
-console.smile('jk'); 
+console.smile("I took all these pictures myself, I swear."); 
   var data = [];
   var counter = 0;  
   $.ajax({
@@ -84,6 +83,8 @@ console.smile('jk');
                                                 .attr('class', 'percent'); 
                                             tooltip.append('div')
                                                 .attr('class', 'steals');
+                                                tooltip.append('div')
+                                                .attr('class', 'pic');
                                         
 
                                             xScale.domain([0, d3.max(data, function(d){return d.ast;})]); 
@@ -139,6 +140,7 @@ console.smile('jk');
                                                             tooltip.select('.assists').html("Assists: " + d.ast); //toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,').slice(0, - 3)); 
                                                             tooltip.select('.percent').html("Rebounds: " + d.reb);
                                                             tooltip.select('.steals').html("Steals: " + d.stl);
+                                                            tooltip.select('.pic').html("<img src=" + d.pic + " style='width: 80%'>");
                                                             // tooltip.style('display', 'block')
                                                             tooltip.style('opacity', 1);  //for fade in/out effect using display makes immediate pop in/out of view
                                                             // .classed("my-selector", true);

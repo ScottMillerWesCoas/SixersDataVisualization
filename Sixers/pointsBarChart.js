@@ -7,6 +7,7 @@ $(function(){
       console.log('BUSTED AJAX', data); 
     }, 
     success: function(result){
+      console.log("RES", result); 
      data = result; 
     }
   }); 

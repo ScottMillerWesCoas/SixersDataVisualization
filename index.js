@@ -58,7 +58,7 @@ app.listen(app.get('port'), function() {
 
 const scrapeController = {
   getData: (req, res) => {
-    var dataArr = [], gifArr = [], gifArr2 = [], picArr = [], articleArr = [], check, testObj = {}, output, $, latestGifUrl, finalGifUrl, latestGifArr = [], storedGifs = [], testArr, useArr = [], redisFlag = false; 
+    var dataArr = [], gifArr = [], gifArr2 = [], picArr = [], articleArr = [], check, testObj = {}, output, $, latestGifUrl, finalGifUrl, latestGifArr = [], storedGifs = [], testArr, useArr = [], redisFlag = false, picObj = {}; 
 
     request('http://www.nba.com/sixers/stats/averages', (error, response, html) => {
       if (error){
@@ -73,10 +73,22 @@ const scrapeController = {
 
       $('.player-name__inner-wrapper').map(function(i, bqQ) {
         const output = cheerio(bqQ);
-        picArr.push(output.children('img').attr('src'));
+        // picArr.push(output.children('img').attr('src'));
         //push player pic img src link data into array
       }); 
-
+      $('.player_name').map(function(i, bqQ) {
+        const output = cheerio(bqQ);
+        picArr.push({name: output.attr('title').substring(0, output.attr('title').indexOf(',')), pic: output.children('.player-name__inner-wrapper').children('img').attr('src')});
+        
+        // picArr.push(output.children) 
+         
+        // 
+        //push player pic img src link data into array
+      });
+      picArr.forEach(function(el){ 
+        picObj[el.name] = el.pic
+      })
+       // sendPics(picArr);
       //remove dots and empty spaces from collected data array
       for (var i = 0; i < t.length; i++){
         if (t[i] === '•') t.splice(i-3, 5, '\n'); 
@@ -118,19 +130,21 @@ const scrapeController = {
               }
             }
           }); 
-
-          dataArr.push(picArr.slice(0, 13));
-          dataArr.push(articleArr);
+       
+   
         }//close conditional of all players having been collected
       }//close looping through all collected data
-   
+      return addPics(dataArr, picObj); 
 
 
     
     }); //close scraping NBA.com
 
       // if (redisFlag === true) console.log("USING GIFS IN REDIS"); 
-      return dataArr; 
+
+      // dataArr.push(picArr.slice(0, 14));
+       
+      // return dataArr; 
 
     //send all collected data back to realStats.js
   } //CLOSES GETDATA
@@ -140,12 +154,19 @@ const scrapeController = {
 
 //END OF SCRAPER DATA
 
+scrapeController.getData(); 
+
+var dataArray; 
 
 
-var dataArray = scrapeController.getData(); 
-
-
-
+ function addPics(arr, obj){
+        arr.forEach(function(el){
+          for (var x in obj){
+            if (x === el.name) el.pic = obj[x]
+          }
+        })
+        dataArray = arr;  
+      }
 
 
 module.exports = app; 

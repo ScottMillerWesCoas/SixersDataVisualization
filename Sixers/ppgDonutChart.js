@@ -98,6 +98,7 @@ $(function(){
                                 tooltip.select('.name').html(d.data.name); 
                                 tooltip.select('.PPG').html("Points Per Game: " + d.data.PPG); //toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,').slice(0, - 3)); 
                                 tooltip.select('.percent').html(percent + '% of Sixers PPG Total');
+                                tooltip.select('.pic').html("<img src=" + d.data.pic + " style='width: 80%'>");
                                 // tooltip.style('display', 'block')
                                 tooltip.style('opacity', 1);  //for fade in/out effect using display makes immediate pop in/out of view
                                 // .classed("my-selector", true);
@@ -244,6 +245,8 @@ $(function(){
 
                             tooltip.append('div')
                                 .attr('class', 'percent'); 
+                            tooltip.append('div')
+                                .attr('class', 'pic'); 
 
 
 
