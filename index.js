@@ -29,9 +29,6 @@ var request = require('request');
 
 app.use(express.static(path.join(__dirname, '/Sixers'))); 
 
-app.use(bodyParser.urlencoded({extended: true})); 
-app.use(cookieParser()); 
-
 
 //SIXERS ROUTES
 
