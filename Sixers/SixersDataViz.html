@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+  <head>
+    <meta charset="UTF-8">
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<!--      <script src='/socket.io/socket.io.js'></script> -->
+
+  <!-- MATERIALIZE Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+
+  <!--  MATERIALIZE Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+
+  <!--D3 -->
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<!-- D3 Color Schemes -->
+<script src="https://d3js.org/d3-color.v1.min.js"></script>
+<script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
+<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+<!-- D3 map convertor-->
+<script src="https://d3js.org/topojson.v1.min.js"></script>
+<!-- D3 legend -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.24.0/d3-legend.js"></script>
+
+      <link rel="stylesheet" type="text/css" href="./SixersDataVizStyle.css">
+     <link href='https://fonts.googleapis.com/css?family=Exo+2:400,900' rel='stylesheet' type='text/css'>
+     <link href='https://fonts.googleapis.com/css?family=Oswald:700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
+      <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+
+  </head>
+  <body>
+      <nav class="navbar navbar-custom static-top">
+        <!-- <div class="container-fluid"> -->
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://s-miller.com">Home</a>
+          </div> <!-- Closes 'HOME' Header for navbar-->
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+              <li><div><a href="http://s-miller.com/Dev/Angular/#/resume" id='aDown'>Resume</a></div></li>
+              <li>
+                <div>
+                <a href="https://developedbyscottmiller.herokuapp.com/Sixers/" id='aDown'>Other Things I've Built</a>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <a href='#'> 
+                  Scott.T.Miller1@gmail.com
+                  </a>
+                </div>
+              </li>
+            </ul> 
+          </div>
+      </nav> 
+  <div class='everything'>
+    <div class='container-fluid'>
+      <div class='row rowTight'>
+        <div class='col-xs-12 iverson'>
+          <div class='introText'>
+            <span class='introTextWords'>Sixers Data Visualization</span>
+          </div>
+        </div>
+      </div>
+  </div>
+      <div class='searchInputs'>
+      <div class='container-fluid'>
+
+    <div class="row scatterPlotChartRow rowTight">
+      <div class="col-xs-12 col-md-4">
+        <div class='card' id='snapshot'> 
+          <div class="card-image">
+            <img src=../images/saricScores.jpg>
+            <span class="card-title flow-text">Player Snapshot</span>
+          </div>
+          <div class="card-action">
+          <!--       <form id='userForm' style='position: relative'> -->
+               <!--    <div class='test2'> -->
+            <span class='flow-text' style="color: black">Points, Rebounds, Assists, Steals</span>
+                 <!--  <span class='bottomInput2 content2 flow-text'>The more common the search word (like "love") the more tweets you'll get back!</span>
+                  </div> -->
+                   <!--  <input class='userInput' id='user' type='text' autocomplete="off"/> -->
+               <!--  </form> -->
+           <!--    </div> -->
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-8 D3SnapshotScatterPlotChart">
+      </div>
+    </div>
+
+    <div class="row barChartRow rowTight">
+      <div class="col-xs-12 col-md-4">
+        <div class='card' id='totalPoints'> 
+          <div class="card-image">
+            <img src=./images/covingtonScores.jpeg>
+            <span class="card-title flow-text">Points Scored </span>
+          </div>
+          <div class="card-action">
+          <!--       <form id='userForm' style='position: relative'> -->
+               <!--    <div class='test2'> -->
+            <span class='flow-text' style="color: black">Click to see total points by player</span>
+                 <!--  <span class='bottomInput2 content2 flow-text'>The more common the search word (like "love") the more tweets you'll get back!</span>
+                  </div> -->
+                   <!--  <input class='userInput' id='user' type='text' autocomplete="off"/> -->
+               <!--  </form> -->
+           <!--    </div> -->
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-8 D3PointsBarChart">
+      </div>
+    </div>
+        <div class="row donutChartRow rowTight">
+      <div class="col-xs-12 col-md-4">
+        <div class='card' id='ppg'> 
+          <div class="card-image">
+            <img src=../images/embiidScores.jpg>
+            <span class="card-title flow-text">Points Per Game </span>
+          </div>
+          <div class="card-action">
+          <!--       <form id='userForm' style='position: relative'> -->
+               <!--    <div class='test2'> -->
+            <span class='flow-text' style="color: black">Click to see how each Sixer did!</span>
+                 <!--  <span class='bottomInput2 content2 flow-text'>The more common the search word (like "love") the more tweets you'll get back!</span>
+                  </div> -->
+                   <!--  <input class='userInput' id='user' type='text' autocomplete="off"/> -->
+               <!--  </form> -->
+           <!--    </div> -->
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-8 D3PointsDonutChart">
+      </div>
+    </div>
+    </div>
+    </div>
+    </div> 
+  </body>
+
+<script src='./SixersDataViz.js'></script>
+<script src='./pointsBarChart.js'></script>
+<script src='./ppgDonutChart.js'></script>
+<script src='./playerSnapshotScatterPlot.js'></script>
+<!-- Fun Yahoo weather API jsonP to avoid AJAX calls-->
+<!-- <script src="https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22philadelphia%2C%20pa%22)&format=json&callback=callbackFunction"></script> -->
+
+
+</html>
+
+
+
