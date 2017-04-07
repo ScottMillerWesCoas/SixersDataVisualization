@@ -210,7 +210,7 @@ $(function(){
 
                         var linear = d3.scaleLinear()
                           .domain([0,d3.max(data, function(d){return d.stl;})])
-                          .range(["rgb(253,213,196)", "rgb(103,0,13)"]);
+                          .range(["rgb(253,233,223)", "rgb(103,0,13)"]);
 
                         
 
