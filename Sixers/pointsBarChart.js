@@ -8,7 +8,6 @@ $(function(){
     }, 
     success: function(result){
      data = result; 
-     console.log(data);  
     }
   }); 
 

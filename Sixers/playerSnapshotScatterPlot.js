@@ -1,4 +1,18 @@
 $(function(){
+  const commands = [
+    { emoji: '🦄', name: 'unicorn' },
+    { emoji: '🍕', name: 'pizza' },
+    { emoji: '🍺', name: 'beer' },
+    { emoji: '💩', name: 'poo' }, 
+    { emoji: '😊', name: 'smile'}
+];
+
+{
+    // Create custom commands
+    commands.forEach(({ name, emoji }) => window.console[name] = (...args) => console.log(emoji + ' ' + args.join(', ')));
+}
+console.log("Copyright: I took all these pictures myself, I swear."); 
+console.smile('jk'); 
   var data = [];
   var counter = 0;  
   $.ajax({
@@ -8,7 +22,7 @@ $(function(){
     }, 
     success: function(result){
      data = result;  
-    }
+    } 
   }); 
       $('#snapshot').on('click', function(){
         if (counter < 1){
@@ -69,11 +83,8 @@ $(function(){
                                             tooltip.append('div')
                                                 .attr('class', 'percent'); 
                                             tooltip.append('div')
-                                                .attr('class', 'steals'); 
-                                  
-                                                var maxReb = d3.max(data, function(d){return d.ast;}); 
-                                                var maxAst = d3.max(data, function(d){return d.reb;});
-                                                console.log("MR", maxReb, "MA", maxAst); 
+                                                .attr('class', 'steals');
+                                        
 
                                             xScale.domain([0, d3.max(data, function(d){return d.ast;})]); 
                                             yScale.domain([0, d3.max(data, function(d){return d.reb;})]); 
