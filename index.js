@@ -161,9 +161,7 @@ var dataArray;
 
  function addPics(arr, obj){
         arr.forEach(function(el){
-          for (var x in obj){
-            if (x === el.name) el.pic = obj[x]
-          }
+          if (obj.hasOwnProperty(el.name)) el.pic = obj[el.name]; 
         })
         dataArray = arr;  
       }

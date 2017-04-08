@@ -9,9 +9,9 @@ $(function(){
 
 {
     // Create custom commands
-    commands.forEach(({ name, emoji }) => window.console[name] = (...args) => console.log(emoji + ' ' + args.join(', ')));
+    commands.forEach(({ name, emoji }) => window.console[name] = (...args) => console.log(args.join(', ') + ' ' + emoji));
 }
-console.smile("I took all these pictures myself, I swear."); 
+console.smile("Copyright: I took all these pictures myself, I swear."); 
   var data = [];
   var counter = 0;  
   $.ajax({
@@ -134,7 +134,8 @@ console.smile("I took all these pictures myself, I swear.");
                                                                 return (d.enabled) ? d.PPG : 0; // FOR ANIMATION PURPOSES; 
                                                             }))
                                                             var percent = Math.round(100 * d.PPG /total);   //just time 100?
-                                                            tooltip.select('.name').html(d.name);
+                                                            tooltip.select('.name').style('opacity', 1);
+                                                            tooltip.select('.name').text(d.name);
                                                             tooltip.select('.position').html(d.position); 
                                                             tooltip.select('.ppg').html("PPG: " + d.PPG); //toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,').slice(0, - 3)); 
                                                             tooltip.select('.assists').html("Assists: " + d.ast); //toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,').slice(0, - 3)); 
@@ -154,7 +155,7 @@ console.smile("I took all these pictures myself, I swear.");
                                                         })
                                                              circles.on('mouseout', function(d){
                                                                     // tooltip.style('display', 'none')
-                                                                    tooltip.style('opacity', 0); 
+                                                                    tooltip.style('opacity', 0);
                                                                 })
 
 
