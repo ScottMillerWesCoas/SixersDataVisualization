@@ -134,11 +134,10 @@ console.smile("Copyright: I took all these pictures myself, I swear.");
                                                                 return (d.enabled) ? d.PPG : 0; // FOR ANIMATION PURPOSES; 
                                                             }))
                                                             var percent = Math.round(100 * d.PPG /total);   //just time 100?
-                                                            tooltip.select('.name').style('opacity', 1);
                                                             tooltip.select('.name').text(d.name);
-                                                            tooltip.select('.position').html(d.position); 
-                                                            tooltip.select('.ppg').html("PPG: " + d.PPG); //toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,').slice(0, - 3)); 
-                                                            tooltip.select('.assists').html("Assists: " + d.ast); //toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,').slice(0, - 3)); 
+                                                            tooltip.select('.position').text(d.position); 
+                                                            tooltip.select('.ppg').text("PPG: " + d.PPG); //toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,').slice(0, - 3)); 
+                                                            tooltip.select('.assists').text("Assists: " + d.ast); //toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,').slice(0, - 3)); 
                                                             tooltip.select('.percent').html("Rebounds: " + d.reb);
                                                             tooltip.select('.steals').html("Steals: " + d.stl);
                                                             tooltip.select('.pic').html("<img src=" + d.pic + " style='width: 80%'>");
@@ -147,14 +146,13 @@ console.smile("Copyright: I took all these pictures myself, I swear.");
                                                             // .classed("my-selector", true);
                                                         }); 
                                                           circles.on('mousemove', function(d){
+                          
                                                             tooltip
                                                             .style('top',  event.pageY + 25 + 'px')  // .style('top', (d3.event.pageY - 50) + 'px')
                                                             .style('left',  event.pageX + 'px')
-                                                            .style('opacity', 1) //.style('left',  (d3.event.pageX - 780) + 'px')
 
-                                                        })
+                                                        })                     
                                                              circles.on('mouseout', function(d){
-                                                                    // tooltip.style('display', 'none')
                                                                     tooltip.style('opacity', 0);
                                                                 })
 

@@ -665,7 +665,7 @@ top: -5%;
   #redTT{
     background-color: #67000D;
   }
-  
+
   .swatch {
     fill: slategrey;
     stroke: black;
@@ -733,7 +733,6 @@ div#game-box:hover::-webkit-scrollbar-thumb {
   font-size: 1.5rem;
   font-weight: 500; 
 }
-
 
 #lowerText{
   top: 8rem;

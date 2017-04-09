@@ -1,8 +1,7 @@
 {
-  "name": "Start on Heroku: Node.js",
-  "description": "A barebones Node.js app using Express 4",
+  "name": "Sixers Data Visualizations with D3",
+  "description": "Scraping Sixers Players Stats from NBA.com with Node.js and Cheerio, presenting them with D3 and Materialize.js",
   "repository": "https://github.com/heroku/node-js-getting-started",
-  "logo": "http://node-js-sample.herokuapp.com/node.svg",
-  "keywords": ["node", "express", "static"],
+  "keywords": ["Sixers", "Philadelphia", "Node", "Cheerio", "D3", "Materialize"],
   "image": "heroku/nodejs"
 }
