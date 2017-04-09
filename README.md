@@ -1,6 +1,6 @@
 # Sixers Data Visualization
 
-## Viewable at sixersdatavisualizations.herokuapp.com
+## Viewable at [sixersdatavisualizations.herokuapp.com](https://sixersdatavisualizations.herokuapp.com)
 
 ### Tools
 
@@ -8,4 +8,3 @@
 - [Cheerio]- scraping NBA.com for pictures and stats
 - [D3] - data visualizations
 - [Materialize] - layout
-- [Bootstrap] - layout
