@@ -97,11 +97,11 @@ const scrapeController = {
         if (t[i] === '') t.splice(i, 1); 
       }
       //remove unnecessary additional data after player stats
-      t = t.slice(0, 280); 
+      t = t.slice(0, 290); 
 
 
       for (var j = 0; j < t.length; j++){
-        if (t[j].indexOf('Jahlil') > -1 || t[j].indexOf('Justin') > -1 || t[j].indexOf('Robert') > -1 || t[j].indexOf('Nik') > -1 || t[j].indexOf('McCon') > -1 || t[j].indexOf('Chasson') > -1 || t[j].indexOf('Joel') > -1 || t[j].indexOf('Ersan') > -1 || t[j].indexOf('Holmes') > -1 || t[j].indexOf('Luwaw') > -1 || t[j].indexOf('Saric') > -1 || t[j].indexOf('Sergio') > -1 || t[j].indexOf('Gerald') > -1){
+        if (t[j].indexOf('Jahlil') > -1 || t[j].indexOf('Justin') > -1 || t[j].indexOf('Robert') > -1 || t[j].indexOf('Nik') > -1 || t[j].indexOf('McCon') > -1 || t[j].indexOf('Chasson') > -1 || t[j].indexOf('Joel') > -1 || t[j].indexOf('Sean') > -1 || t[j].indexOf('Holmes') > -1 || t[j].indexOf('Luwaw') > -1 || t[j].indexOf('Saric') > -1 || t[j].indexOf('Sergio') > -1 || t[j].indexOf('awn') > -1){
           //loop through array, looking for player name, which is followed by all relevant stats
           var obj = {}; 
           obj.name = t[j]; 

@@ -40,6 +40,8 @@ console.smile("Copyright: I took all these pictures myself, I swear.");
                             if (d.name === 'Timothe Luwawu-Cabarrot') d.name = 'T. Luwawu-Cabarrot'; 
                         })
 
+                              data = data.sort(function(a,b){return b.PPG - a.PPG})
+
                                 var svg1 = d3.select("#scatterChart").append('svg')
                                     .attr('id', 'scatterPlotChartSVG')
                                     .attr('viewBox', "0 0 " + (width + margin.left + margin.right) + ' ' + (height + margin.top + margin.bottom + 20)  )
@@ -87,7 +89,7 @@ console.smile("Copyright: I took all these pictures myself, I swear.");
                                                 .attr('class', 'pic');
                                         
 
-                                            xScale.domain([0, d3.max(data, function(d){return d.ast;})]); 
+                                            xScale.domain([0, (d3.max(data, function(d){return d.ast;}) + 25)]); 
                                             yScale.domain([0, d3.max(data, function(d){return d.reb;})]); 
                                             // var yRange = d3.extent(data, function(d){return d.reb;})
                                             // console.log("YR", yRange); 
@@ -111,7 +113,7 @@ console.smile("Copyright: I took all these pictures myself, I swear.");
                                                 circles
                                                     .transition()
                                                       .duration(3000)
-                                                      .delay(function(d,i){return i * 550})
+                                                      .delay(function(d,i){return i * 350})
                                                       .attr('fill', function(d){
                                                         var stealsMax = d3.max(data, function(d){return d.stl;}); 
                                                         return d3.interpolateReds(d.stl/stealsMax); })
